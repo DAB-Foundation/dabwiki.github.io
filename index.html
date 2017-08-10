@@ -352,6 +352,8 @@ Error message and password prompt
 
 <li>ActivationStage</li>
 
+<li>AMonthLoanPlanFormula</li>
+
 <li>AYearLoanPlanFormula</li>
 
 <li>CreditAgent</li>
@@ -12402,7 +12404,7 @@ Error message and password prompt
 <div created="20170723154648888" creator="d" modified="20170723154650339" modifier="dabwik" title="$:/status/UserName">
 <pre>dabwiki</pre>
 </div>
-<div list="[[Try the DAB in Ropsten Test Network]] ActivationStage ExpantionStage" title="$:/StoryList">
+<div list="[[Try the DAB in Ropsten Test Network]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20170723154715732" creator="dabwiki" modified="20170723154715732" modifier="dabwiki" title="$:/temp/advancedsearch">
@@ -13051,6 +13053,13 @@ The DPT's price is growing as the invests awards from ''DepositAgent''. In this 
 The incentives will make the price of DPT stick to the DPT Price Curve. The ''PriceFloorCurve'' also restrains the price to fall. 
 </pre>
 </div>
+<div created="20170810125905306" creator="dabwiki" modified="20170810125925015" modifier="dabwiki" tags="LoanPlanFormula contract" title="AMonthLoanPlanFormula" type="text/vnd.tiddlywiki">
+<pre>Loan Days: 30 days.
+
+Loan Exempt Days: 10 days.
+
+Loan Interests Rate: float from 0.5%-2% according to total loan amount to all users.</pre>
+</div>
 <div created="20170731181333870" creator="dabwiki" modified="20170801014240139" modifier="dabwiki" tags="contract LoanPlanFormula" title="AYearLoanPlanFormula" type="text/vnd.tiddlywiki">
 <pre>Loan Days: 365 days.
 
@@ -13119,7 +13128,7 @@ After the ''ActivationStage'', ''DAB'' gets into ''Expansion''. The price become
 There are two other curves in the graph, which shows the revenue of the investors in different conditions. The first curve shows the first investor's revenue, while the second curve shows an investor' revenue who invests at some point of DPT supply. Each investor revenue curve is between the two curves.
 </pre>
 </div>
-<div created="20170731181052963" creator="dabwiki" modified="20170801014246658" modifier="dabwiki" tags="contract LoanPlanFormula" title="HalfAYearLoanPlanFormula" type="text/vnd.tiddlywiki">
+<div created="20170731181052963" creator="dabwiki" modified="20170810125928650" modifier="dabwiki" tags="contract LoanPlanFormula" title="HalfAYearLoanPlanFormula" type="text/vnd.tiddlywiki">
 <pre>Loan Days: 180 days.
 
 Loan Exempt Days: 15 days.
@@ -13146,7 +13155,7 @@ Loan Exempt Days: 5 minutes.
 
 Loan Interests Rate: float from 6%-25% according to total loan amount to all users.</pre>
 </div>
-<div created="20170731174745299" creator="dabwiki" modified="20170802154504283" modifier="dabwiki" tags="Preview Test" title="Try the DAB in Ropsten Test Network" type="text/vnd.tiddlywiki">
+<div created="20170731174745299" creator="dabwiki" modified="20170810125849828" modifier="dabwiki" tags="Preview Test" title="Try the DAB in Ropsten Test Network" type="text/vnd.tiddlywiki">
 <pre>!! Overview
 The deploy address is on [[0xee0714a27c93a64e504e54e25cca44dec11a856a |https://ropsten.etherscan.io/address/0xee0714a27c93a64e504e54e25cca44dec11a856a]]
 
@@ -13162,22 +13171,23 @@ In the first place, you need a user-friendly Ethereum Wallet. You can download i
 
 ''DABWallet'' is the official wallet of ''DAB'', which provides user-friendly interfaces to interact with ''DAB''. You can add ''WalletFactory ''contract to the [[Ethereum Wallet|https://github.com/ethereum/mist/releases]], and create your first ''DABWallet''. 
 
-''WalletFactory'' contract address: 0xc86260ba0d3f5d750a3bb5543e913156eaf18703
+''WalletFactory'' contract address: 0x442f84efa3a4c28efd49c0d3622651d4f859447a
 
-''WalletFactory'' contract ABI: [[Github|https://github.com/dabdevelop/ABI/blob/master/DABWalletFactory.json#L3-L289]]
+''WalletFactory'' contract ABI: [[Github|https://github.com/dabdevelop/ABI/blob/master/DABWalletFactory.json#L3-L284]]
 
 ''LoanPlanFormula'' contract address: 
 
-* ''HalfAYearLoanPlanFormula'': 0xfedab35c8ceaf68a6937ea3e8d67bd0b4ef68591
-* ''AYearLoanPlanFormula'': 0x29a73a894da754707dd55baf57f4e90513bb93c5
-* ''TwoYearLoanPlanFormula'': 0xa825972872823147da9b6d2c1fcde0a02c97e0aa
-* ''TestLoanPlanFormula'': 0xcf916cdf8d35dcf44ba761eca6f35ca620ce0e8c
+* ''AMonthLoanPlanFormula'': 0x9b9fd9a7c0471d323a6937cacfca1075ef9a469e
+* ''HalfAYearLoanPlanFormula'': 0x8ed8bf104aa53d40f2c923bff62d1ab091e8e547
+* ''AYearLoanPlanFormula'': 0xbc854af94507755d87b9a5536e477289bfbb7a75
+* ''TwoYearLoanPlanFormula'': 0x76e03b9dc4bb836fbc9dfe1b105f11cecdb5dc94
+* ''TestLoanPlanFormula'': 0xd3c9ff5c95462227e27bc16f3d4915ac82b09c39
 
 You need choose one of four valid ''LoanPlanFormula'' to create a ''DABWallet''. Once you succeed to execute the `newDABWallet` function. You can track the ''Log New Wallet'' event, and find your ''DABWallet'' contract address.
 
 ''DABWallet'' contract address: find in the events of ''WalletFactory'' contract.
 
-''DABWallet'' contract ABI: [[Github|https://github.com/dabdevelop/ABI/blob/master/DABWallet.json#L3-L730]]
+''DABWallet'' contract ABI: [[Github|https://github.com/dabdevelop/ABI/blob/master/DABWallet.json#L3-L756]]
 
 Now, you can use the wallet to `deposit`, `withdraw`, `cash`, `loan`, `repay`, etc.
 
@@ -13185,10 +13195,10 @@ Now, you can use the wallet to `deposit`, `withdraw`, `cash`, `loan`, `repay`, e
 
 ''Token''  addresses:
 
-* ''DepositToken'': 0x3061cce31ab5b61b1ebfd983b1d0d3546af7c9c8
-* ''CreditToken'': 0xc5c42c39a0afa65497a622eb319f8c6d9ce7aef8
-* ''SubCreditToken'': 0xca357b54af883c47202ed173ee6f06a88e33c76e
-* ''DiscreditToken'': 0xf1014a22b6489ef942d63003e00b8d6f86742750
+* ''DepositToken'': 0xff99ba7b71637e5d5873a0b84d28bbb8803190bc
+* ''CreditToken'': 0x1b24128b678137f034f1ec8e323a67d645222686
+* ''SubCreditToken'': 0xcf7d87cd7cf578e2585124374caf65554bc74f53
+* ''DiscreditToken'': 0x3d47757f88e4e9d1f6fabbb53582f046f7edcf57
 
 
 !! Tips
@@ -13212,24 +13222,29 @@ Now, you can use the wallet to `deposit`, `withdraw`, `cash`, `loan`, `repay`, e
 !! Appendix
 In case you want deep view of ''DAB'', there are all contract addresses listed.
 
-* ''HalfAYearLoanPlanFormula'': 0xfedab35c8ceaf68a6937ea3e8d67bd0b4ef68591
-* ''AYearLoanPlanFormula'': 0x29a73a894da754707dd55baf57f4e90513bb93c5
-* ''TwoYearLoanPlanFormula'': 0xa825972872823147da9b6d2c1fcde0a02c97e0aa
-* ''EasyDABFormula'': 0x15f697b9ec8e5c1fc8815bc225da302f4f124e64
-* ''DepositToken'': 0x3061cce31ab5b61b1ebfd983b1d0d3546af7c9c8
-* ''DepositTokenController'': 0x1ac6d58520c8954b6bf928b50324b84ac0544c88
-* ''CreditToken'': 0xc5c42c39a0afa65497a622eb319f8c6d9ce7aef8
-* ''CreditTokenController'': 0x9c02bb161c9f1335a49ab341fa8da1711f37046d
-* ''SubCreditToken'': 0xca357b54af883c47202ed173ee6f06a88e33c76e
-* ''SubCreditTokenController'': 0xc76820e2230ec9775a5fcded3fe84aea887f963b
-* ''DiscreditToken'': 0xf1014a22b6489ef942d63003e00b8d6f86742750
-* ''DiscreditTokenController'': 0xbebe168bdfe0eaed4a9bc5ceab026db20ca8c534
-* ''DABCreditAgent'': 0x0fcb9231696ceb8b5a39db830b401471b128344c
-* ''DABDepositAgent'': 0xf416e9b55ee601f89b69550d80122ec8d3dc5de2
-* ''TestLoanPlanFormula'': 0xcf916cdf8d35dcf44ba761eca6f35ca620ce0e8c
-* ''DAB'': 0xb35e98099a1b6010a1f4fb40e192c7e482aab42a
-* ''DABWalletFactory'': 0xc86260ba0d3f5d750a3bb5543e913156eaf18703
-
+* ''AMonthLoanPlanFormula'': 0x9b9fd9a7c0471d323a6937cacfca1075ef9a469e
+* ''HalfAYearLoanPlanFormula'': 0x8ed8bf104aa53d40f2c923bff62d1ab091e8e547
+* ''AYearLoanPlanFormula'': 0xbc854af94507755d87b9a5536e477289bfbb7a75
+* ''TwoYearLoanPlanFormula'': 0x76e03b9dc4bb836fbc9dfe1b105f11cecdb5dc94
+* ''EasyDABFormula'': 0x61b6264a1c968bd40ce12bc589f5271fb73795a7
+* ''DABDaoFormula'': 0x275489efe3a9f6b63c6b9137c2f4f1e83d1e5c38
+* ''DepositToken'': 0xff99ba7b71637e5d5873a0b84d28bbb8803190bc
+* ''DepositTokenController'': 0xeb645670557fe689df9e46bb04c6e4a5487fdc93
+* ''CreditToken'': 0x1b24128b678137f034f1ec8e323a67d645222686
+* ''CreditTokenController'': 0xb57a32f372fdaa72d36b6f220511c08ef6b7b439
+* ''SubCreditToken'': 0xcf7d87cd7cf578e2585124374caf65554bc74f53
+* ''SubCreditTokenController'': 0x3e2301d35bf46d79480069c54fffd339c92e077a
+* ''DiscreditToken'': 0x3d47757f88e4e9d1f6fabbb53582f046f7edcf57
+* ''DiscreditTokenController'': 0xc7dab1f02b00c74b056467eb8684c8ce1a589d1a
+* ''VoteToken'': 0x33cd3f327cb9fce2af6861050a7c24dbd1da2929
+* ''VoteTokenController'': 0x9b0f0ae6f5b6fd466d8b459a318686871d8c5562
+* ''DABCreditAgent'': 0x2270bbbcdcd81e58041f407c6d0a40fbe1a905fa
+* ''DABDepositAgent'': 0x8002b9d0a4bd4ff0f74167f2a6602a52c2209f14
+* ''TestLoanPlanFormula'': 0xd3c9ff5c95462227e27bc16f3d4915ac82b09c39
+* ''TestDAB'': 0x2d4b36fe2432f7895817c341dbdde69f2e2dfb20
+* ''DABWalletFactory'': 0x442f84efa3a4c28efd49c0d3622651d4f859447a
+* ''DABDao'': 0x70bbec8329e9eae596ac9de4b0ac168bf044af1b
+* ''ProposalToAcceptDABOwnership'': 0x4fe3d3d445e7f610ac9aa529590db5ef634d7e83
 Contracts ABI: [[Github|https://github.com/dabdevelop/ABI]]</pre>
 </div>
 <div created="20170731181420691" creator="dabwiki" modified="20170801014233410" modifier="dabwiki" tags="contract LoanPlanFormula" title="TwoYearLoanPlanFormula" type="text/vnd.tiddlywiki">
