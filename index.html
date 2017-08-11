@@ -13155,13 +13155,18 @@ Loan Exempt Days: 5 minutes.
 
 Loan Interests Rate: float from 6%-25% according to total loan amount to all users.</pre>
 </div>
-<div created="20170731174745299" creator="dabwiki" modified="20170810125849828" modifier="dabwiki" tags="Preview Test" title="Try the DAB in Ropsten Test Network" type="text/vnd.tiddlywiki">
+<div created="20170731174745299" creator="dabwiki" modified="20170811024721479" modifier="dabwiki" tags="Preview Test" title="Try the DAB in Ropsten Test Network" type="text/vnd.tiddlywiki">
 <pre>!! Overview
+!!! Contracts Structure
 The deploy address is on [[0xee0714a27c93a64e504e54e25cca44dec11a856a |https://ropsten.etherscan.io/address/0xee0714a27c93a64e504e54e25cca44dec11a856a]]
 
 The structure of the ''DAB'' is showed in the graph.
 
 [img[https://dab.wiki/imgs/DAB_Hierarchy.jpg]]
+
+!!! Detailed Manual
+* Chinese Edition: [[Download|https://dab.wiki/docs/manual_zh.pdf]]
+* English Edition: [[Download|https://dab.wiki/docs/manual_en.pdf]]
 
 !! Download The Ethereum Wallet
 
@@ -13183,7 +13188,7 @@ In the first place, you need a user-friendly Ethereum Wallet. You can download i
 * ''TwoYearLoanPlanFormula'': 0x76e03b9dc4bb836fbc9dfe1b105f11cecdb5dc94
 * ''TestLoanPlanFormula'': 0xd3c9ff5c95462227e27bc16f3d4915ac82b09c39
 
-You need choose one of four valid ''LoanPlanFormula'' to create a ''DABWallet''. Once you succeed to execute the `newDABWallet` function. You can track the ''Log New Wallet'' event, and find your ''DABWallet'' contract address.
+These five ''LoanPlanFormula'' have been added to ''DABWalletFactory''. Once you succeed to execute the `newDABWallet` function. You can track the ''Log New Wallet'' event, and find your ''DABWallet'' contract address.
 
 ''DABWallet'' contract address: find in the events of ''WalletFactory'' contract.
 
@@ -13207,7 +13212,7 @@ Now, you can use the wallet to `deposit`, `withdraw`, `cash`, `loan`, `repay`, e
 
 # `depositETH` and `deposit` of ''DABWallet'' is quite different. The former only transfers your ETH to the wallet while the latter transfer the ETH to the ''DAB'' to get ''DepositToken''. If you are in ''ActivationStage'', You may get ''CreditToken'' in the mean time.
 
-# You can change the ''LoanPlanFormula'' in ''WalletFactory'' contract, so you do not need to recreate a new wallet for a new loan plan.
+# You can `setWalletLoanPlanFormula` in ''DABWallet'' contract, so you need one of five valid loan plan.
 
 # You have to `approve` the agents to access your tokens before you `withdraw`, `cash`, `loan`. Use `approveMax` for short.
 
